@@ -1,3 +1,5 @@
+package MSOE.Practice;
+
 import java.util.Scanner;
 
 public class Triangle {

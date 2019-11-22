@@ -1,3 +1,5 @@
+package Codeforces.Completed;
+
 import java.util.Scanner;
 
 //https://codeforces.com/problemset/problem/1238/A
