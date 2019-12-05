@@ -1,5 +1,8 @@
 package Utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -7,7 +10,11 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class CodeSnippets {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
+
+        //-------------------------
+        // SCANNER
+        //-------------------------
         Scanner sc = new Scanner(System.in);
 
         //Split by spaces
@@ -34,6 +41,15 @@ public class CodeSnippets {
         System.out.println(LoggingUtil.logArrayList(split));
 
         sc.close();
+
+        //-------------------------
+        // BUFFERED READER
+        //-------------------------
+        BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
+
+        ArrayList<String> bufSplit = new ArrayList<>(Arrays.asList(buf.readLine().split(" ")));
+
+
 
     }
 
