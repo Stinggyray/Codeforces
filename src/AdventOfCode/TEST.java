@@ -1,5 +1,7 @@
 package AdventOfCode;
 
+import Utils.LoggingUtil;
+
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -100,14 +102,13 @@ public class TEST {
         int i = 0; //pointer pos
 
         while(true){
+            //System.out.println("Currently at pos: " + i);
             int opTypeStart = splint.get(i);
             String opTypeParser = "" + opTypeStart;
 
             while(opTypeParser.length() != 5){
                 opTypeParser = "0" + opTypeParser;
             }
-
-            //System.out.println(opTypeParser);
 
             int mode1 = opTypeParser.substring(2, 3).equals("0") ? 0 : 1;
             int mode2 = opTypeParser.substring(1, 2).equals("0") ? 0 : 1;
@@ -230,11 +231,13 @@ public class TEST {
                 }
                 int pos3;
                 if(mode3 == 0){
-                    pos3 = splint.get(splint.get(i + 2));
+                    pos3 = splint.get(i + 3);
                 } else {
-                    pos3 = splint.get(i + 2);
+                    pos3 = i + 3;
                 }
+
                 splint.set(pos3, pos1 < pos2 ? 1 : 0);
+                //System.out.println("Setting " + pos3 + " to:" + (pos1 < pos2 ? 1 : 0));
                 i += 4;
             }
             else if(opType == 8){
@@ -252,16 +255,18 @@ public class TEST {
                 }
                 int pos3;
                 if(mode3 == 0){
-                    pos3 = splint.get(splint.get(i + 2));
+                    pos3 = splint.get(i + 3);
                 } else {
-                    pos3 = splint.get(i + 2);
+                    pos3 = i + 3;
                 }
                 splint.set(pos3, pos1 == pos2 ? 1 : 0);
+                //System.out.println("Setting " + pos3 + " to:" + (pos1 == pos2 ? 1 : 0));
                 i += 4;
             }
             else {
                 throw new InvalidParameterException();
             }
         }
+        System.out.println(LoggingUtil.logArrayListInts(splint));
     }
 }
